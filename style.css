@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header {
+    padding: 20px;
+    background-color: burlywood;
+    border-bottom: 1px solid #888;
+}
+
+section {
+    padding: 10px;
+}
+
+.product-list-item {
+    width: 30%;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+}

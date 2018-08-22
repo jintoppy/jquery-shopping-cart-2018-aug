@@ -1,0 +1,35 @@
+const myInput = jQuery('#myinput');
+const myBtn = jQuery('#mybtn');
+const containerEl = jQuery('.container');
+
+let todos = [];
+
+const attachEventListener = () => {
+    jQuery('ul li button').on('click', (e) => {
+        const todoItemIndex = jQuery(e.target).data('todoindex');
+        todos.splice(todoItemIndex, 1);
+        render();
+    });
+};
+
+const render = () => {
+    let str = '<ul>';
+
+    todos.forEach((item, index) => {
+        str += `<li>${item}<button data-todoindex="${index}">X</button></li>`;
+    });
+    // const str = `<ul>${todos.reduce((acc, curr) => acc + `<li>${curr}</li>`, '')}</ul>`
+    str += '</ul>';
+
+    containerEl.html(str);
+
+    attachEventListener();
+};
+
+
+myBtn.on('click', () => {
+   const todoItem = myInput.val();
+   todos.push(todoItem);
+   render();
+});
+
